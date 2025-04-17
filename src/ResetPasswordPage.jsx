@@ -16,7 +16,7 @@ const ResetPasswordPage = () => {
     useEffect(() => {
         if (token) {
             axios
-                .get(`https://kaz-password-reset.onrender.com/reset-password/verify?token=${token}`)
+                .get(`https://qusine.onrender.com/reset-password/verify?token=${token}`)
                 .then((response) => {
                     setUsername(response.data.username);
                 })
@@ -39,7 +39,7 @@ const ResetPasswordPage = () => {
         }
 
         try {
-            await axios.post(`https://kaz-password-reset.onrender.com/reset-password`, {
+            await axios.post(`https://qusine.onrender.com/reset-password`, {
                 token,
                 newPassword,
             });

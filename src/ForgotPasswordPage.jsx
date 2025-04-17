@@ -12,7 +12,7 @@ function ForgotPasswordPage() {
         setError('');
 
         try {
-            const response = await axios.post(`https://kaz-password-reset.onrender.com/forgot-password`, {
+            const response = await axios.post(`https://qusine.onrender.com/forgot-password`, {
                 email,
             });
             setMessage(response.data.message);
