@@ -6,7 +6,7 @@ const NavBar = () => {
 
     return (
         <nav className="relative z-10 flex items-center justify-around px-8 py-3">
-            <button onClick={() => navigate('/')} className="text-gray-200 cursor-pointer text-2xl font-bold">Qusine</button>
+            <button onClick={() => navigate('/')} className="text-gray-200 cursor-pointer text-2xl font-bold">Quisine</button>
             <div className="w-full max-w-2xl bg-white rounded-full flex items-center px-4 py-2 shadow-md">
                 <div className="flex items-center bg-white rounded-full px-2 py-1">
                     <MapPin className="w-4 h-4 text-gray-700" />
