@@ -24,8 +24,8 @@ function VerifyAccountPage() {
   useEffect(() => {
     if (success) {
       const timer = setTimeout(() => {
-        navigate("/");
-      }, 3000); // Redirect to login page after 3 seconds
+        navigate("/LoginPage");
+      }, 300000); // Redirect to login page after 3 seconds
       return () => clearTimeout(timer);
     }
   }, [success, navigate]);
