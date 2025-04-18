@@ -29,7 +29,7 @@ const HeroSection = () => {
 
             {/* Hero Content */}
             <div className="relative z-10 flex flex-col gap-5 items-center h-full max-w-4xl mx-auto px-4">
-                <div className="text-white text-9xl font-bold">Qusine</div>
+                <div className="text-white text-9xl font-bold">Quisine</div>
                 <h1 className="text-white text-3xl sm:text-5xl font-medium text-center mb-6">
                     Find the best restaurants in TamilNadu
                 </h1>
