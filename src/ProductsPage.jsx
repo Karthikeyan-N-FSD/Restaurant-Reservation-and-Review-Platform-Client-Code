@@ -7,7 +7,7 @@ function ProductsPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`https://qusine.onrender.com/products`)
+        axios.get(`https://quisine.onrender.com/products`)
             .then((res) => setProducts(res.data))
             .catch((err) => {
                 console.error("Unauthorized or Error:", err);

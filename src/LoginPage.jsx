@@ -16,7 +16,7 @@ function LoginPage() {
     setMessage('');
 
     try {
-      const response = await axios.post(`https://qusine.onrender.com/login`, {
+      const response = await axios.post(`https://quisine.onrender.com/login`, {
         email,
         password,
       });

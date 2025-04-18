@@ -11,7 +11,7 @@ function VerifyAccountPage() {
   useEffect(() => {
     const verify = async () => {
       try {
-        const res = await axios.get(`https://qusine.onrender.com/verify-account/${token}`);
+        const res = await axios.get(`https://quisine.onrender.com/verify-account/${token}`);
         setMessage(res.data.message || "Account verified successfully. You can now login.");
         setSuccess(true);
       } catch (err) {

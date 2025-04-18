@@ -33,7 +33,7 @@ function RegisterPage() {
 
         try {
             // Call the back-end API
-            const response = await axios.post(`https://qusine.onrender.com/register`, {
+            const response = await axios.post(`https://quisine.onrender.com/register`, {
                 name,
                 email,
                 password,
