@@ -11,7 +11,7 @@ function VerifyAccountPage() {
   useEffect(() => {
     const verify = async () => {
       try {
-        const res = await axios.get(`https://quisine.onrender.com/verify-account/${token}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/verify-account/${token}`);
         setMessage(res.data.message || "Account verified successfully. You can now login.");
         setSuccess(true);
       } catch (err) {
@@ -25,7 +25,7 @@ function VerifyAccountPage() {
     if (success) {
       const timer = setTimeout(() => {
         navigate("/LoginPage");
-      }, 300000); // Redirect to login page after 3 seconds
+      }, 3000); // Redirect to login page after 3 seconds
       return () => clearTimeout(timer);
     }
   }, [success, navigate]);

@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
+import { UserContext } from "./context/UserContext";
 
 function ForgotPasswordPage() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const { user } = useContext(UserContext);
+
+    useEffect(() => {
+        if (user) {
+            navigate(-1); // Go back to previous page if already logged in
+        }
+    }, [user, navigate]);
 
     const handleForgotPassword = async (e) => {
         e.preventDefault();
@@ -12,7 +22,7 @@ function ForgotPasswordPage() {
         setError('');
 
         try {
-            const response = await axios.post(`https://quisine.onrender.com/forgot-password`, {
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/forgot-password`, {
                 email,
             });
             setMessage(response.data.message);

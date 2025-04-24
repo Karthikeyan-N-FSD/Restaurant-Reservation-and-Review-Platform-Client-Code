@@ -1,10 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useContext } from "react";
+import { UserContext } from "./context/UserContext";
+import { SearchContext } from "./context/SearchContext";
 import bgImage from './assets/bg_image.jpg';
 import { MapPin, Search } from 'lucide-react';
 
-const HeroSection = () => {
+const LandingPage = () => {
     const navigate = useNavigate();
+    const { user, logout } = useContext(UserContext);
+    const { location, setLocation, searchTerm, setSearchTerm } = useContext(SearchContext);
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        navigate('/search');
+    };
 
     return (
         <div className="relative w-full h-screen bg-gray-100">
@@ -21,9 +31,24 @@ const HeroSection = () => {
             {/* Navigation Bar */}
             <nav className="relative z-10 flex items-center justify-end px-8 py-9">
                 <div className="flex space-x-10 text-2xl ">
-                    <button className="text-white cursor-pointer" >Add restaurant</button>
-                    <button className="text-white cursor-pointer" onClick={() => navigate('/LoginPage')}>Log in</button>
-                    <button className="text-white cursor-pointer" onClick={() => navigate('/register')}>Sign up</button>
+                    <button className="text-white cursor-pointer" onClick={() => navigate('/add-restaurant')}>Add restaurant</button>
+                    {user ? (
+                        <>
+                            <span className="text-white">Welcome, {user.name}</span>
+                            <button className="text-white cursor-pointer" onClick={logout}>
+                                Logout
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            <button className="text-white cursor-pointer" onClick={() => navigate('/LoginPage')}>
+                                Log in
+                            </button>
+                            <button className="text-white cursor-pointer" onClick={() => navigate('/register')}>
+                                Sign up
+                            </button>
+                        </>
+                    )}
                 </div>
             </nav>
 
@@ -35,11 +60,15 @@ const HeroSection = () => {
                 </h1>
 
                 {/* Search Section */}
-                <div className="w-full max-w-3xl bg-white rounded-full flex items-center px-4 py-2 shadow-md">
+                <form
+                    className="w-full max-w-3xl bg-white rounded-full flex items-center px-4 py-2 shadow-md"
+                    onSubmit={handleSearch}
+                >
                     <div className="flex items-center bg-white rounded-full px-2 py-1">
                         <MapPin className="w-4 h-4 text-gray-700" />
                         <select
-                            defaultValue="Chennai"
+                            value={location}
+                            onChange={e => setLocation(e.target.value)}
                             className="outline-none text-gray-700 flex-grow sm:flex-grow-0 w-28 sm:w-40 px-2 bg-transparent"
                         >
                             <option value="All">All</option>
@@ -51,16 +80,18 @@ const HeroSection = () => {
                     <Search className="w-4 h-4 mr-2" />
                     <input
                         type="text"
+                        value={searchTerm}
+                        onChange={e => setSearchTerm(e.target.value)}
                         placeholder="Search for restaurant or a cuisine"
                         className="outline-none flex-grow text-gray-700 px-2"
                     />
                     <button className="bg-red-500 hover:bg-red-600 cursor-pointer text-white rounded-full px-6 py-2 ml-2">
                         Search
                     </button>
-                </div>
+                </form>
             </div>
         </div>
     );
 };
 
-export default HeroSection;
+export default LandingPage;

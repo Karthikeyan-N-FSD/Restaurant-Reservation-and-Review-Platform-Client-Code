@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import { Link } from 'react-router';
+import { useState, useContext, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router';
 import axios from "axios";
+import { UserContext } from './context/UserContext';
 
 function RegisterPage() {
     const [name, setName] = useState('');
@@ -9,6 +10,15 @@ function RegisterPage() {
     const [confirmPassword, setConfirmPassword] = useState('');
     const [message, setMessage] = useState('');
     const [error, setError] = useState("");
+
+    const navigate = useNavigate();
+    const { user } = useContext(UserContext);
+
+    useEffect(() => {
+        if (user) {
+            navigate(-1); // Go back to previous page if already logged in
+        }
+    }, [user, navigate]);
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -33,7 +43,7 @@ function RegisterPage() {
 
         try {
             // Call the back-end API
-            const response = await axios.post(`https://quisine.onrender.com/register`, {
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/register`, {
                 name,
                 email,
                 password,

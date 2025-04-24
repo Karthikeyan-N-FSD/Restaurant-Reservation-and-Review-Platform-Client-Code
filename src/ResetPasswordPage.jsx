@@ -16,7 +16,7 @@ const ResetPasswordPage = () => {
     useEffect(() => {
         if (token) {
             axios
-                .get(`https://quisine.onrender.com/reset-password/verify?token=${token}`)
+                .get(`${import.meta.env.VITE_BACKEND_URL}/reset-password/verify?token=${token}`)
                 .then((response) => {
                     setUsername(response.data.username);
                 })
@@ -25,8 +25,11 @@ const ResetPasswordPage = () => {
                 });
         } else {
             setError("No token provided.");
+            setTimeout(() => {
+                navigate(-1); // Go back to previous page if no token
+            }, 1000);
         }
-    }, [token]);
+    }, [token, navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,7 +42,7 @@ const ResetPasswordPage = () => {
         }
 
         try {
-            await axios.post(`https://quisine.onrender.com/reset-password`, {
+            await axios.post(`${import.meta.env.VITE_BACKEND_URL}/reset-password`, {
                 token,
                 newPassword,
             });

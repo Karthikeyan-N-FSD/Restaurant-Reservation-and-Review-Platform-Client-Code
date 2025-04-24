@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router';
 import axios from 'axios';
+import { UserContext } from './context/UserContext';
 
 function LoginPage() {
   const navigate = useNavigate();
+  const { login, user } = useContext(UserContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (user) {
+      navigate(-1); // Go back to previous page
+    }
+  }, [user, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,16 +24,14 @@ function LoginPage() {
     setMessage('');
 
     try {
-      const response = await axios.post(`https://quisine.onrender.com/login`, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/login`, {
         email,
         password,
       });
 
       setMessage(response.data.message || 'Login successful');
 
-      localStorage.setItem('token', response.data.token);
-      axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
-      navigate ('/products'); 
+      await login(response.data.token);
     } catch (err) {
       setError(err.response?.data?.error || 'Login failed');
     }
