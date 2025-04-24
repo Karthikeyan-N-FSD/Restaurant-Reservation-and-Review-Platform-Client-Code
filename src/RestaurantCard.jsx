@@ -17,7 +17,6 @@ const RestaurantCard = ({ restaurant }) => {
                     alt={restaurant.name}
                     onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/300x200/eee/ccc?text=Image+Error"; }}
                 />
-                
             </div>
 
             {/* Details Section */}
@@ -45,7 +44,6 @@ const RestaurantCard = ({ restaurant }) => {
                 {/* Location and Distance */}
                 <div className="flex justify-between items-center text-xs text-gray-500">
                     <p className="truncate">{restaurant.address}</p>
-                    
                 </div>
             </div>
         </div>

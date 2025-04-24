@@ -43,7 +43,9 @@ const SeatConfirmationPage = () => {
           },
         }
       );
-      alert("Reservation confirmed!");
+
+      // Display the success message from the server
+      alert(response.data.message);
       navigate("/"); // Redirect to home or another page
     } catch (error) {
       if (error.response?.status === 400) {
