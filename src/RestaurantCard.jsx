@@ -17,7 +17,7 @@ const RestaurantCard = ({ restaurant }) => {
                     alt={restaurant.name}
                     onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/300x200/eee/ccc?text=Image+Error"; }}
                 />
-                {console.log('Restaurant Image URL:', restaurant.imageUrl)}
+                
             </div>
 
             {/* Details Section */}

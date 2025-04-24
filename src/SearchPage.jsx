@@ -60,7 +60,7 @@ const SearchPage = () => {
               <div className="col-span-full text-center text-gray-500">No restaurants found.</div>
             ) : (
               restaurants.map((restaurant) => (
-                console.log(restaurant),
+                
                 <RestaurantCard key={restaurant._id || restaurant.id} restaurant={{
                   ...restaurant,
                   cuisine: Array.isArray(restaurant.cuisines)
