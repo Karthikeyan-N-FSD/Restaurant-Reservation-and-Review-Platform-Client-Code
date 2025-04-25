@@ -19,7 +19,7 @@ const SearchPage = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const [ratingFilter, setRatingFilter] = useState(false); // State for "Rating 4.0+"
+  const [ratingFilter, setRatingFilter] = useState(false); 
 
   const availableFilters = ["Live Music", "Valet Parking", "Outdoor Seating", "Pet Friendly", "Serves Alcohol"];
 
@@ -73,7 +73,7 @@ const SearchPage = () => {
           <FilterButton
             text="Rating 4.0+"
             isSelected={ratingFilter}
-            onClick={() => setRatingFilter(!ratingFilter)} // Toggle rating filter
+            onClick={() => setRatingFilter(!ratingFilter)} 
           />
         </div>
 

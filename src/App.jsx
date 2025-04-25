@@ -19,6 +19,7 @@ import AddRestaurantForm from './AddRestaurantForm';
 import bgImage from './assets/bg_image.jpg';
 import './App.css';
 import LandingPage from './LandingPage';
+import BookingsPage from "./BookingsPage";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
                 <Route path="book/confirmation" element={<SeatConfirmationPage />} />
                 <Route index element={<OverviewSection />} /> {/* Default */}
               </Route>
+              <Route path="/bookings" element={<BookingsPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
