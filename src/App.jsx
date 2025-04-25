@@ -20,6 +20,7 @@ import bgImage from './assets/bg_image.jpg';
 import './App.css';
 import LandingPage from './LandingPage';
 import BookingsPage from "./BookingsPage";
+import ProfilePage from "./ProfilePage"
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
                 <Route index element={<OverviewSection />} /> {/* Default */}
               </Route>
               <Route path="/bookings" element={<BookingsPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -68,7 +68,7 @@ const LandingPage = () => {
                         <MapPin className="w-4 h-4 text-gray-700" />
                         <select
                             value={location}
-                            onChange={e => setLocation(e.target.value)}
+                            onChange={(e) => setLocation(e.target.value)}
                             className="outline-none text-gray-700 flex-grow sm:flex-grow-0 w-28 sm:w-40 px-2 bg-transparent"
                         >
                             <option value="All">All</option>

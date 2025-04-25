@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 export const SearchContext = createContext();
 
 export const SearchProvider = ({ children }) => {
-  const [location, setLocation] = useState("Chennai");
+  const [location, setLocation] = useState("All"); // Default to "All"
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
