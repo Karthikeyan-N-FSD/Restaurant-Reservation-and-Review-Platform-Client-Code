@@ -19,6 +19,7 @@ const SearchPage = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [ratingFilter, setRatingFilter] = useState(false); // State for "Rating 4.0+"
 
   const availableFilters = ["Live Music", "Valet Parking", "Outdoor Seating", "Pet Friendly", "Serves Alcohol"];
 
@@ -42,10 +43,12 @@ const SearchPage = () => {
     // eslint-disable-next-line
   }, [location, searchTerm]);
 
-  // Filter restaurants based on selected filters
-  const filteredRestaurants = restaurants.filter((restaurant) =>
-    selectedFilters.every((filter) => restaurant.info?.includes(filter))
-  );
+  // Filter restaurants based on selected filters and rating
+  const filteredRestaurants = restaurants.filter((restaurant) => {
+    const matchesFilters = selectedFilters.every((filter) => restaurant.info?.includes(filter));
+    const matchesRating = !ratingFilter || restaurant.rating >= 4.0; // Check if rating is 4.0+
+    return matchesFilters && matchesRating;
+  });
 
   const toggleFilter = (filter) => {
     setSelectedFilters((prev) =>
@@ -66,6 +69,12 @@ const SearchPage = () => {
               onClick={() => toggleFilter(filter)}
             />
           ))}
+          {/* Rating Filter */}
+          <FilterButton
+            text="Rating 4.0+"
+            isSelected={ratingFilter}
+            onClick={() => setRatingFilter(!ratingFilter)} // Toggle rating filter
+          />
         </div>
 
         {/* Content Header */}
