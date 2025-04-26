@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { StarIcon } from "@heroicons/react/24/solid";
+import { UserContext } from "./context/UserContext";
 
 const UserReviewsPage = () => {
+  const { user } = useContext(UserContext);
   const [completedBookings, setCompletedBookings] = useState([]);
   const [userReviews, setUserReviews] = useState([]);
   const [selectedBooking, setSelectedBooking] = useState(null);
@@ -20,7 +22,7 @@ const UserReviewsPage = () => {
         });
         const completed = response.data
           .filter((booking) => new Date(booking.date) < new Date())
-          .sort((a, b) => new Date(b.date) - new Date(a.date)); // Sort by newer to older
+          .sort((a, b) => new Date(b.date) - new Date(a.date)); 
         setCompletedBookings(completed);
       } catch (error) {
         console.error("Error fetching completed bookings:", error);
@@ -60,6 +62,7 @@ const UserReviewsPage = () => {
           restaurantId: selectedBooking.restaurantId._id,
           rating,
           text: reviewText,
+          userName: user.name,
         },
         {
           headers: {
