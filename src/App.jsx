@@ -21,6 +21,7 @@ import './App.css';
 import LandingPage from './LandingPage';
 import BookingsPage from "./BookingsPage";
 import ProfilePage from "./ProfilePage"
+import UserReviewsPage from "./UserReviewsPage";
 
 function App() {
   return (
@@ -54,8 +55,9 @@ function App() {
                 <Route path="book/confirmation" element={<SeatConfirmationPage />} />
                 <Route index element={<OverviewSection />} /> {/* Default */}
               </Route>
-              <Route path="/bookings" element={<BookingsPage />} />
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/bookings" element={<BookingsPage />} />
+              <Route path="/reviews" element={<UserReviewsPage />} />
             </Route>
           </Routes>
         </BrowserRouter>
