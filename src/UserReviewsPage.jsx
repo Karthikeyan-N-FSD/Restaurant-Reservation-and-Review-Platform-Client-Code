@@ -22,7 +22,7 @@ const UserReviewsPage = () => {
         });
         const completed = response.data
           .filter((booking) => new Date(booking.date) < new Date())
-          .sort((a, b) => new Date(b.date) - new Date(a.date)); 
+          .sort((a, b) => new Date(b.date) - new Date(a.date));
         setCompletedBookings(completed);
       } catch (error) {
         console.error("Error fetching completed bookings:", error);
@@ -56,7 +56,7 @@ const UserReviewsPage = () => {
     }
 
     try {
-      await axios.post(
+      const response = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/reviews`,
         {
           restaurantId: selectedBooking.restaurantId._id,
@@ -70,6 +70,18 @@ const UserReviewsPage = () => {
           },
         }
       );
+
+      // Add the new review to the state
+      const newReview = {
+        _id: response.data._id,
+        restaurantId: selectedBooking.restaurantId,
+        userEmail: user.email,
+        userName: user.name,
+        rating,
+        text: reviewText,
+        date: new Date().toISOString(),
+      };
+      setUserReviews((prevReviews) => [newReview, ...prevReviews]); // Add the new review to the top of the list
       alert("Review submitted successfully!");
       setRating(0);
       setReviewText("");
@@ -88,7 +100,7 @@ const UserReviewsPage = () => {
     <div className="container mx-auto px-4 py-6">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">Your Reviews</h2>
 
-      <div className="flex flex-col md:flex-row gap-3">
+      <div className="flex flex-col obsolute md:flex-row gap-3">
         {/* Past Reviews Section */}
         <div className="w-full lg:w-2/3">
           <h3 className="text-lg font-semibold text-gray-800 mb-4">Your Past Reviews</h3>
@@ -124,7 +136,7 @@ const UserReviewsPage = () => {
 
         {/* Write a Review Section */}
         <div className="w-full lg:w-1/3">
-          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+          <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200 sticky top-4">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Write a Review</h3>
             <form onSubmit={handleSubmitReview}>
               <div className="mb-4">

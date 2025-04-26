@@ -89,7 +89,7 @@ function RestaurantDetail() {
     return (
         <div className="max-w-6xl mx-auto p-4 font-sans">
             {/* Header Info */}
-            <div className="mb-4">
+            <div className="mb-1 sticky top-0 z-10 bg-white p-0.5">
                 <div className="flex justify-between items-start mb-2">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800">{restaurantData.name}</h1>
