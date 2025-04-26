@@ -118,7 +118,7 @@ export default function AddRestaurantForm({ onSuccess }) {
           name="name"
           value={form.name}
           onChange={handleChange}
-          placeholder="Restaurant Name"
+          placeholder="Restaurant Name (e.g., The Gourmet Spot)"
           required
           className="border p-2 rounded"
         />
@@ -174,7 +174,7 @@ export default function AddRestaurantForm({ onSuccess }) {
           name="location"
           value={form.location}
           onChange={handleChange}
-          placeholder="Location"
+          placeholder="Location (e.g., Chennai)"
           required
           className="border p-2 rounded"
         />
@@ -182,7 +182,7 @@ export default function AddRestaurantForm({ onSuccess }) {
           name="openingTime"
           value={form.openingTime}
           onChange={handleChange}
-          placeholder="Opening Time (e.g. 10:00am)"
+          placeholder="Opening Time (e.g. 10:00)"
           required
           className="border p-2 rounded"
         />
@@ -190,7 +190,7 @@ export default function AddRestaurantForm({ onSuccess }) {
           name="closingTime"
           value={form.closingTime}
           onChange={handleChange}
-          placeholder="Closing Time (e.g. 11:30pm)"
+          placeholder="Closing Time (e.g., 22:00)"
           required
           className="border p-2 rounded"
         />
@@ -238,7 +238,7 @@ export default function AddRestaurantForm({ onSuccess }) {
           name="timeSlots"
           value={form.timeSlots}
           onChange={handleChange}
-          placeholder="Time Slots (comma separated, e.g. 9,10,12,13,19,20)"
+          placeholder="Time Slots (9, 11, 12,13,18,19)"
           className="border p-2 rounded"
         />
         <input
