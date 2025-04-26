@@ -1,4 +1,4 @@
-import { MapPin, Search } from 'lucide-react';
+import { MapPinIcon, MagnifyingGlassIcon, ChevronDownIcon } from '@heroicons/react/24/outline'; 
 import { useNavigate } from 'react-router';
 import { useContext, useState } from 'react';
 import { UserContext } from './context/UserContext';
@@ -34,7 +34,7 @@ const NavBar = ({ textColor }) => {
         onSubmit={handleSearch}
       >
         <div className="flex items-center bg-white rounded-full px-2 py-1">
-          <MapPin className="w-4 h-4 text-gray-700" />
+          <MapPinIcon className="w-4 h-4 text-gray-700" />
           <select
             value={location}
             onChange={(e) => setLocation(e.target.value)}
@@ -46,7 +46,7 @@ const NavBar = ({ textColor }) => {
           </select>
         </div>
         <span className="text-gray-400 mx-2">|</span>
-        <Search className="w-4 h-4 mr-2" />
+        <MagnifyingGlassIcon className="w-4 h-4 mr-2" />
         <input
           type="text"
           value={searchTerm}
@@ -62,10 +62,11 @@ const NavBar = ({ textColor }) => {
         {user ? (
           <div className="relative">
             <button
-              className="cursor-pointer"
+              className="cursor-pointer flex items-center space-x-1"
               onClick={toggleDropdown}
             >
-              {user.name}
+              <span>{user.name}</span>
+              <ChevronDownIcon className="w-4 h-4" /> 
             </button>
             {dropdownOpen && (
               <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { StarIcon } from '@heroicons/react/24/solid';
 import { useNavigate } from 'react-router';
 
 const RestaurantCard = ({ restaurant }) => {
@@ -30,7 +30,7 @@ const RestaurantCard = ({ restaurant }) => {
                     {restaurant.rating && (
                         <div className={`flex items-center rounded px-1.5 py-0.5 text-xs font-bold text-white ${restaurant.rating === 'NEW' ? 'bg-green-500' : 'bg-green-600'}`}>
                             {restaurant.rating}
-                            {restaurant.rating !== 'NEW' && <Star size={12} className="ml-1 fill-white" />}
+                            {restaurant.rating !== 'NEW' && <StarIcon className="w-4 h-4 ml-1 text-white" />}
                         </div>
                     )}
                 </div>
