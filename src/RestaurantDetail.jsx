@@ -108,7 +108,10 @@ function RestaurantDetail() {
                     {openStatus}
                     <span>|</span>
                     <span className="flex items-center">
-                        <ClockIcon className="h-3 w-3 mr-1" /> Closes {formatTo12Hour(restaurantData.closingTime)}
+                        <ClockIcon className="h-3 w-3 mr-1" />
+                        {isOpenNow(restaurantData.openingTime, restaurantData.closingTime)
+                            ? `Closes ${formatTo12Hour(restaurantData.closingTime)}`
+                            : `Opens ${formatTo12Hour(restaurantData.openingTime)}`}
                     </span>
                     <span>|</span>
                     <span className="flex items-center"><CurrencyRupeeIcon className="h-3 w-3 mr-0.5" />{restaurantData.priceForTwo} for two</span>
