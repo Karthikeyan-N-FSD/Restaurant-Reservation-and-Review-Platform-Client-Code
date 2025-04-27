@@ -108,7 +108,7 @@ export default function AddRestaurantForm({ onSuccess }) {
 
   return (
     <form
-      className="bg-white p-6 rounded shadow-md max-w-xl mx-auto space-y-4"
+      className="bg-white p-6 rounded shadow-md max-w-4xl mx-auto space-y-4"
       onSubmit={handleSubmit}
       encType="multipart/form-data"
     >
@@ -119,28 +119,6 @@ export default function AddRestaurantForm({ onSuccess }) {
           value={form.name}
           onChange={handleChange}
           placeholder="Restaurant Name (e.g., The Gourmet Spot)"
-          required
-          className="border p-2 rounded"
-        />
-        <input
-          name="rating"
-          value={form.rating}
-          onChange={handleChange}
-          placeholder="Rating (e.g. 4.3)"
-          type="number"
-          step="0.1"
-          min="0"
-          max="5"
-          required
-          className="border p-2 rounded"
-        />
-        <input
-          name="ratingCount"
-          value={form.ratingCount}
-          onChange={handleChange}
-          placeholder="Rating Count"
-          type="number"
-          min="0"
           required
           className="border p-2 rounded"
         />
@@ -238,7 +216,7 @@ export default function AddRestaurantForm({ onSuccess }) {
           name="timeSlots"
           value={form.timeSlots}
           onChange={handleChange}
-          placeholder="Time Slots (9, 11, 12,13,18,19)"
+          placeholder="Time Slots: 9,11,12,13,18,19"
           className="border p-2 rounded"
         />
         <input
