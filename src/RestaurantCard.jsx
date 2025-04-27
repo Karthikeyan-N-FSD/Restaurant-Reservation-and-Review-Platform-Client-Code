@@ -28,7 +28,7 @@ const RestaurantCard = ({ restaurant }) => {
                     </h3>
                     {/* Rating Badge */}
                     {restaurant.rating && (
-                        <div className={`flex items-center rounded px-1.5 py-0.5 text-xs font-bold text-white ${restaurant.rating === 'NEW' ? 'bg-green-500' : 'bg-green-600'}`}>
+                        <div className={`flex items-center rounded px-1.5 py-0.5 text-xs font-bold text-white ${getRatingColor(restaurant.rating)}`}>
                             {restaurant.rating}
                             {restaurant.rating !== 'NEW' && <StarIcon className="w-4 h-4 ml-1 text-white" />}
                         </div>
@@ -49,5 +49,14 @@ const RestaurantCard = ({ restaurant }) => {
         </div>
     );
 };
+
+function getRatingColor(rating) {
+    if (rating >= 4) {
+        return 'bg-green-600';
+    } else if (rating >= 2) {
+        return 'bg-yellow-500';
+        return 'bg-red-500';
+    }
+}
 
 export default RestaurantCard;
