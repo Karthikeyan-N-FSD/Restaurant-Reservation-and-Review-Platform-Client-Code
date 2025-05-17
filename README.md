@@ -1,12 +1,32 @@
-# React + Vite
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Quisine is a modern, responsive restaurant reservation and review platform built with React 18 and Vite, featuring client-side routing with React Router, global state management via Redux Toolkit (including RTK Query), form handling with Formik & Yup, and HTTP communications with Axios. The UI is styled using Tailwind CSS, and the app is deployed on Netlify with a backend API hosted on Render.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Karthikeyan N — [GitHub](https://github.com/Karthikeyan-N-FSD)
+Demo: [https://quisine.netlify.app/](https://quisine.netlify.app/)
+Backend API: [https://quisine.onrender.com/](https://quisine.onrender.com/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- **Browse & Search** restaurants by name, location, or cuisine.
+- **Reservations**: Create, update, and cancel table bookings.
+- **Reviews**: Add, edit, and delete user reviews with star ratings.
+- **Authentication**: JWT-based login/register flows with role-based access (user vs. admin).
+- **Responsive Design**: Fully responsive layout leveraging Tailwind CSS.
+
+---
+
+## Tech Stack
+
+- **React 18** for component-based UI
+- **Vite** as the fast build tool and dev server
+- **React Router v6+** for client-side routing
+- **Redux Toolkit & RTK Query** for global state and data fetching/caching
+- **Formik & Yup** for form state and validation
+- **Axios** for HTTP requests to the backend API
+- **Tailwind CSS** for utility-first styling
+- **Netlify** for static frontend hosting and **Render** for the Node/Express backend
